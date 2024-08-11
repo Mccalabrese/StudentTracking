@@ -1,1 +1,1 @@
-public abstract String display();
+    public abstract String display();
