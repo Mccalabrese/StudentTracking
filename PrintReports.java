@@ -4,12 +4,23 @@ import util.KeyboardReader;
 
 import java.util.ArrayList;
 
+/**
+ *  Represents a Printed Report, which will contain a classroom, teacher, and students
+ *  Tests the {@link Classroom} class.
+ *  Tests the {@link Student} class.
+ *  Tests the {@link Teacher} class.
+ */
 public class PrintReports {
     public static void main(String[] args) {
         new PrintReports();
     }
     private ArrayList<Displayable> classrooms;
     private boolean isFirstIteration = true;
+
+    /**
+     * Method to generate a classroom object with a room number, teacher, and student.
+     * @return classroom new classroom object with room number, teacher, and student
+     */
     public Displayable enterClassroom() {
         int roomNumber = 0;
         if (isFirstIteration) {
@@ -42,6 +53,11 @@ public class PrintReports {
         Classroom classroom = new Classroom(roomNumber, teacher, students);
         return classroom;
     }
+
+    /**
+     * Method to generate a Teacher object with a name and subject
+     * @return Teacher New teacher with a name and subject
+     */
     public Teacher enterTeacher() {
         String firstName = KeyboardReader.getPromptedString("Enter Teacher First Name: ");
         String lastName = KeyboardReader.getPromptedString("Enter Teacher Last Name: ");
@@ -49,6 +65,10 @@ public class PrintReports {
         return new Teacher(firstName, lastName, subject);
     }
 
+    /**
+     * Method to generate a new student object with name, id, and grade.
+     * @return Student New Student with full name, ID, and grade.
+     */
     public Student enterStudent() {
         int studentId = 0;
         String firstName;
@@ -77,8 +97,10 @@ public class PrintReports {
         return new Student(firstName, lastName, studentId, finalGrade);
     }
 
-
-
+    /**
+     * Method to print out the report of classrooms and they're attributes
+     * @param classrooms the classrooms in the list of classrooms
+     */
     void report(ArrayList<Displayable> classrooms) {
         for (Displayable classroom : classrooms) {
             System.out.println("\n-------------------------------------------");
@@ -86,6 +108,10 @@ public class PrintReports {
             System.out.println("-------------------------------------------\n");
         }
     }
+
+    /**
+     * Method to add a classroom and prompt user if they would like to add another additional classroom
+     */
     public PrintReports() {
         classrooms = new ArrayList<>();
         char choice;
